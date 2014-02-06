@@ -21,6 +21,8 @@ set smartindent
 
 set foldmethod=syntax
 set foldlevel=1
+set synmaxcol=120
+set backspace=indent,eol,start
 
 " Wrapping mode on
 nmap k gk
