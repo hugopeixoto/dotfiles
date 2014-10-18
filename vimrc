@@ -1,5 +1,7 @@
 syntax on
 
+call pathogen#infect('bundle/{}')
+
 if has("autocmd")
   "set runtimepath+=/usr/local/Cellar/go/1.1/misc/vim
   filetype plugin indent on
