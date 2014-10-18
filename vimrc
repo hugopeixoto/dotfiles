@@ -30,9 +30,12 @@ set backspace=indent,eol,start
 nmap k gk
 nmap j gj
 
+let mapleader = ","
 ab heart ❤
 
 runtime macros/matchit.vim
 
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\t\|\(\s\+$\)/
+autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\)/
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
