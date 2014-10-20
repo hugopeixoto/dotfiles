@@ -3,8 +3,9 @@ syntax on
 call pathogen#infect('bundle/{}')
 
 if has("autocmd")
-  "set runtimepath+=/usr/local/Cellar/go/1.1/misc/vim
-  filetype plugin indent on
+  autocmd filetype plugin indent on
+  autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\)/
+  highlight ExtraWhitespace ctermbg=red guibg=red
 endif
 
 set directory=/tmp/
@@ -31,11 +32,14 @@ nmap k gk
 nmap j gj
 
 let mapleader = ","
+map <Leader>. :w<CR>:!ruby -Itest %<CR>
+map <Leader>r :source $MYVIMRC<CR>
+map <Leader>s :w<CR>
+
+map <Leader>t :let g:CommandTAcceptSelectionCommand="e"<CR>:CommandT<CR>
+map <Leader>vt :let g:CommandTAcceptSelectionCommand="vs"<CR>:CommandT<CR>
+
 ab heart ❤
 
-runtime macros/matchit.vim
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\)/
-
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+noremap <cr> :!time ruby -I.:lib:app/services:test/specs:test %<cr>
