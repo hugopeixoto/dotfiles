@@ -1,0 +1,26 @@
+[user]
+	name = Hugo Peixoto
+	email = hugo.peixoto@gmail.com
+
+[core]
+  excludesfile = ~/.gitignore
+
+[push]
+  default = current
+
+[branch]
+  autosetuprebase = always
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = red
+
+[alias]
+  gl = log --graph --decorate --pretty=oneline --abbrev-commit --all
