@@ -1,0 +1,14 @@
+alias berta='bundle exec ruby test/all.rb'
+alias bert='bundle exec rake test'
+
+alias gl='git gl'
+alias gs='git status'
+alias gap='git add -p'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+alias npm-exec='PATH=$(npm bin):$PATH'
+function ecm { git add $1 && gcm "${1%*.*} solved"; }
+
+function lip { /sbin/ifconfig | grep -w addr | sed 's/.*addr: \?\([0-9a-z.:]*\).*/\1/'; }
