@@ -1,0 +1,7 @@
+export RUST_ROOT="$HOME/work/contrib/rust"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$RUST_ROOT/lib"
+export PATH="$RUST_ROOT/bin:$PATH"
+
+export RBENV_ROOT="$HOME/work/contrib/rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
