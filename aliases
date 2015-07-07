@@ -7,8 +7,10 @@ alias gap='git add -p'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
+function gr() { git rebase -i HEAD~$1; }
 
 alias npm-exec='PATH=$(npm bin):$PATH'
+
 function ecm { git add $1 && gcm "${1%*.*} solved"; }
 
 function lip { /sbin/ifconfig | grep -w addr | sed 's/.*addr: \?\([0-9a-z.:]*\).*/\1/'; }
