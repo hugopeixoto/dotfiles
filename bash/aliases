@@ -7,7 +7,8 @@ alias gap='git add -p'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
-function gr() { git rebase -i HEAD~$1; }
+alias gai='git add -i'
+function gr { git rebase -i HEAD~$1; }
 
 alias npm-exec='PATH=$(npm bin):$PATH'
 
