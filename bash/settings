@@ -1,4 +1,6 @@
-export GREP_OPTIONS="--color --exclude=\*.un~"
+alias grep="grep --color --exclude=\*.un~"
+alias fgrep="fgrep --color --exclude=\*.un~"
+
 export EDITOR=vim
 
 export PS1='${debian_chroot:+($debian_chroot)}\u@\h:$(echo "${PWD/$HOME/\~}" | tico)\$ '
