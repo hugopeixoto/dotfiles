@@ -36,6 +36,7 @@ set autoindent
 set foldmethod=syntax
 set foldlevel=1
 set backspace=indent,eol,start
+set cinoptions+=t0
 let g:sh_noisk=1
 
 
@@ -59,6 +60,8 @@ let mapleader = ","
 map <Leader>. :w<CR>:!ruby -Itest %<CR>
 map <Leader>r :source $MYVIMRC<CR>
 map <Leader>s :w<CR>
+map <Leader>i gg=G``
+map <Leader>c :%!clang-format-3.5 -style=LLVM<CR>
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
