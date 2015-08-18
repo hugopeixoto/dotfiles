@@ -5,3 +5,9 @@ export PATH="$RUST_ROOT/bin:$PATH"
 export RBENV_ROOT="$HOME/work/contrib/rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
+
+export NODEJS_ROOT="$HOME/work/contrib/node"
+export PATH="$NODEJS_ROOT/bin:$PATH"
+
+export SUCKLESS_ROOT="$HOME/work/contrib/suckless"
+export PATH="$SUCKLESS_ROOT/bin:$PATH"
