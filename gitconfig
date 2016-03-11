@@ -6,7 +6,7 @@
   excludesfile = ~/.gitignore
 
 [push]
-  default = current
+  default = simple
 
 [branch]
   autosetuprebase = always
