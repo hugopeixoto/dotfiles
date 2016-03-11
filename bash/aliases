@@ -14,4 +14,4 @@ alias npm-exec='PATH=$(npm bin):$PATH'
 
 function ecm { git add $1 && gcm "${1%*.*} solved"; }
 
-function lip { /sbin/ifconfig | grep -w addr | sed 's/.*addr: \?\([0-9a-z.:]*\).*/\1/'; }
+function lip { /sbin/ifconfig | awk '/inet6?/{print $2}' | sort -u; }
