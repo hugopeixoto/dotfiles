@@ -3,5 +3,6 @@ alias fgrep="fgrep --color --exclude=\*.un~"
 
 export EDITOR=vim
 export MAKEFLAGS="-j $(nproc)"
+export PAGER=less
 
 export PS1='${debian_chroot:+($debian_chroot)}\u@\h:$(echo "${PWD/$HOME/\~}" | tico)\$ '
