@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+REPO=$HOME/work/personal/dotfiles
+
+for dotfile in bash gemrc gitconfig gitignore vim vimrc; do
+  ln -s $REPO/$dotfile $HOME/.$dotfile
+done
