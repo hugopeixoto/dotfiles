@@ -29,6 +29,7 @@ if has("autocmd")
   highlight ExtraWhitespace ctermbg=red guibg=red
 endif
 
+set nojoinspaces
 set synmaxcol=120
 set expandtab
 set shiftwidth=2
