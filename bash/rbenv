@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+export RBENV_ROOT="$HOME/work/contrib/rbenv"
+
+if [ -d "$RBENV_ROOT" ]; then
+  export PATH="$PATH:$RBENV_ROOT/bin"
+  eval "$(rbenv init -)"
+fi

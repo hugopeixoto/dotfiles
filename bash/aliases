@@ -1,17 +1,27 @@
+#! /usr/bin/env bash
+
 alias berta='bundle exec ruby test/all.rb'
 alias bert='bundle exec rake test'
 
-alias gl='git gl'
-alias gs='git status'
-alias gap='git add -p'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gai='git add -i'
-alias activate='. .env/bin/activate'
-function gr { git rebase -i HEAD~$1; }
+activate() {
+  py=".env/bin/activate"
+  [ -f "$py" ] && . "$py"
 
-alias npm-exec='PATH=$(npm bin):$PATH'
+  js="node_modules"
+  if [ -d "$js" ]; then
+    export _PREV_PATH_WITHOUT_NPM="$PATH"
+    export _PREV_PS1_WITHOUT_NPM="$PS1"
+
+    export PATH="$(npm bin):$PATH"
+    export PS1="[npm:$(basename "$PWD")]$PS1"
+
+    deactivate() {
+      export PATH="$_PREV_PATH_WITHOUT_NPM"
+      export PS1="$PS1"
+      unset -f deactivate
+    }
+  fi
+}
 
 function ecm { git add $1 && gcm "${1%*.*} solved"; }
 

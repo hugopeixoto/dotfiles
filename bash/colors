@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+alias ls='ls --color=auto'
+alias grep="grep --color --exclude=\*.un~"
+alias fgrep="fgrep --color --exclude=\*.un~"

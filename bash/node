@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+export NODEJS_ROOT="$HOME/work/contrib/node"
+
+if [ -d "$NODEJS_ROOT" ]; then
+  export PATH="$PATH:$NODEJS_ROOT/bin"
+fi

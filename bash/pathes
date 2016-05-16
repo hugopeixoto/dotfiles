@@ -1,19 +1,9 @@
-add_to_path() {
-  export PATH="$PATH:$1"
-}
+#! /usr/bin/env bash
 
-export RUST_ROOT="$HOME/work/contrib/rust"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$RUST_ROOT/lib"
-
-export RBENV_ROOT="$HOME/work/contrib/rbenv"
-export NODEJS_ROOT="$HOME/work/contrib/node"
 export SUCKLESS_ROOT="$HOME/work/contrib/suckless"
 
-add_to_path "$HOME/bin"
-add_to_path "$HOME/work/go/bin"
-add_to_path "$SUCKLESS_ROOT/bin"
-add_to_path "$RBENV_ROOT/bin"
-add_to_path "$NODEJS_ROOT/bin"
-add_to_path "$RUST_ROOT/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/work/go/bin"
+export PATH="$PATH:$SUCKLESS_ROOT/bin"
 
 export ANDROID_HOME="$HOME/work/contrib/android-sdk"

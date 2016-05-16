@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+short_pwd() {
+  local dir="$PWD"
+
+  if [[ "$HOME" == ${dir:0:${#HOME}} ]] ; then
+    dir="~${dir:${#HOME}}"
+  fi
+
+  echo "$dir" | tico
+}
+
+export PS1='\u@\h:$(short_pwd)\$ '
