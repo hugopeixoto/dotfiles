@@ -11,6 +11,7 @@ set modeline
 " interfacy stuff
 set ruler
 set relativenumber
+set tabpagemax=100
 
 
 " searching
