@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-short_pwd() {
+tico_pwd() {
   local dir="$PWD"
 
   if [[ "$HOME" == ${dir:0:${#HOME}} ]] ; then
@@ -10,4 +10,8 @@ short_pwd() {
   echo "$dir" | tico
 }
 
-export PS1='\u@\h:$(short_pwd)\$ '
+if command -v tico > /dev/null; then
+  export PS1='\u@\h:$(tico_pwd)\$ '
+else
+  export PS1='\u@\h:\w\$ '
+fi
