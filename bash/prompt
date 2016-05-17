@@ -7,7 +7,7 @@ tico_pwd() {
     dir="~${dir:${#HOME}}"
   fi
 
-  echo "$dir" | tico
+  tico "$dir"
 }
 
 if command -v tico > /dev/null; then
