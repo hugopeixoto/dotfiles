@@ -1,8 +1,8 @@
-#! /usr/bin/env bash
+#!/usr/bin/env sh
 
 export EDITOR=vim
 export PAGER=less
-export MAKEFLAGS="-j $(nproc)"
+export MAKEFLAGS="-j `nproc`"
 
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 #shopt -s globstar

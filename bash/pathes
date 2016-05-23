@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env sh
 
 export SUCKLESS_ROOT="$HOME/work/contrib/suckless"
 

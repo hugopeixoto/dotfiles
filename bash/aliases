@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 alias berta='bundle exec ruby test/all.rb'
 alias bert='bundle exec rake test'

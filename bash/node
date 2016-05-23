@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env sh
 
 export NODEJS_ROOT="$HOME/work/contrib/node"
 
