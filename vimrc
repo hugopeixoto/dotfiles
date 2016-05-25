@@ -84,7 +84,7 @@ map <Leader>. :w<CR>:!ruby -Itest %<CR>
 map <Leader>r :source $MYVIMRC<CR>
 map <Leader>c :call FormatCode(&ft)<CR>
 
-noremap <Leader>v :call SelectaCommand("find * -type f", "", ":vs")<cr>
-noremap <Leader>t :call SelectaCommand("find * -type f", "", ":tabnew")<cr>
+noremap <Leader>v :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":vs")<cr>
+noremap <Leader>t :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":tabnew")<cr>
 
 noremap <cr> :call RunTest(&ft, %)<cr>
