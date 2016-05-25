@@ -29,15 +29,15 @@ if has("autocmd")
   highlight ExtraWhitespace ctermbg=red guibg=red
 endif
 
-set nojoinspaces
-set synmaxcol=120
-set expandtab
-set shiftwidth=2
-set tabstop=2
 set autoindent
-set foldmethod=syntax
 set backspace=indent,eol,start
 set cinoptions+=t0
+set expandtab
+set foldmethod=syntax
+set nojoinspaces
+set shiftwidth=2
+set synmaxcol=120
+set tabstop=2
 let g:sh_noisk=1
 
 function! FormatCode(lang)
