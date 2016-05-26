@@ -33,6 +33,7 @@ set autoindent
 set backspace=indent,eol,start
 set cinoptions+=t0
 set expandtab
+set foldlevelstart=99
 set foldmethod=syntax
 set nojoinspaces
 set shiftwidth=2
