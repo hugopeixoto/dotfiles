@@ -89,4 +89,5 @@ noremap <Leader>v :call SelectaCommand("find * -type f -not -name '*.un~'", "", 
 noremap <Leader>t :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":tabnew")<cr>
 noremap <Leader>s :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":sp")<cr>
 
+noremap <Space> <C-w><C-w>
 noremap <cr> :call RunTest(&ft, %)<cr>
