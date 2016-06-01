@@ -88,6 +88,7 @@ map <Leader>c :call FormatCode(&ft)<CR>
 noremap <Leader>v :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":vs")<cr>
 noremap <Leader>t :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":tabnew")<cr>
 noremap <Leader>s :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":sp")<cr>
+noremap <Leader>e :call SelectaCommand("find * -type f -not -name '*.un~'", "", ":e")<cr>
 
 noremap <Space> <C-w><C-w>
 noremap <cr> :call RunTest(&ft, %)<cr>
