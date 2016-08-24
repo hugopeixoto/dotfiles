@@ -17,7 +17,7 @@ activate() {
 
     deactivate() {
       export PATH="$_PREV_PATH_WITHOUT_NPM"
-      export PS1="$PS1"
+      export PS1="$_PREV_PS1_WITHOUT_NPM"
       unset -f deactivate
     }
   fi
