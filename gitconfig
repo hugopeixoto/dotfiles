@@ -1,6 +1,12 @@
 [user]
-	name = Hugo Peixoto
-	email = hugo.peixoto@gmail.com
+  name = Hugo Peixoto
+  email = hugo.peixoto@gmail.com
+
+[includeIf "gitdir:~/work/lifeonmars.pt/"]
+  path = .gitconfig.d/lifeonmars.pt
+
+[include]
+  path = .gitconfig.d/sendemail
 
 [core]
   excludesfile = ~/.gitignore

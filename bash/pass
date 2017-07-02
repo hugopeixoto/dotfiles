@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 if command -v pass > /dev/null; then
-  export PASSWORD_STORE_DIR="$HOME/passwords/store/"
+  export PASSWORD_STORE_DIR="$HOME/secrets/passwords/"
 
   if [ -f "$HOME/work/personal/wifi/completion" ]; then
     source "$HOME/work/personal/wifi/completion"
+  fi
+
+  source "/usr/share/bash-completion/completions/pass"
+  if [ -d "$HOME/work/lifeonmars.pt/internal/password-store-extensions/" ]; then
+    source "$HOME/work/lifeonmars.pt/internal/password-store-extensions/complete-add-id.bash"
+    source "$HOME/work/lifeonmars.pt/internal/password-store-extensions/complete-who.bash"
   fi
 fi
