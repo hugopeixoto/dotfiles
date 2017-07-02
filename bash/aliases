@@ -8,6 +8,9 @@ activate() {
   py=".env/bin/activate"
   [ -f "$py" ] && . "$py"
 
+  py=".venv/bin/activate"
+  [ -f "$py" ] && . "$py"
+
   js="node_modules"
   if [ -d "$js" ]; then
     export _PREV_PATH_WITHOUT_NPM="$PATH"
