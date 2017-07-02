@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias pubkey='ssh-keygen -yf'
 alias berta='bundle exec ruby test/all.rb'
 alias bert='bundle exec rake test'
 
