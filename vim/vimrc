@@ -60,6 +60,8 @@ function! FormatCode(lang)
   normal m`
   if (a:lang == 'go')
     exec ":%!gofmt"
+  elseif (a:lang == 'json')
+    exec ":%!python -mjson.tool"
   elseif (a:lang == 'c++')
     exec ":%!clang-format -style=LLVM"
   else
@@ -111,12 +113,12 @@ endfunction
 
 " funky shortcuts
 let mapleader = ","
-let projectFilesLister = "find . -type f -not -name '*.un~' \| egrep -wv 'node_modules|tmp'"
+let projectFilesLister = "find . -maxdepth 5 -type f -not -name '*.un~' \| egrep -wv 'node_modules|tmp'"
 
 noremap <Leader>. :w<CR>:!ruby -Itest %<CR>
 noremap <Leader>r :source $MYVIMRC<CR>
-noremap <Leader>c :call FormatCode(&ft)<CR>
 noremap <Leader>c :%s#\($\n\s*\)\+\%$##<CR>gg=G :w<CR>
+noremap <Leader>c :call FormatCode(&ft)<CR>
 
 noremap <Leader>n :call NextFile(projectFilesLister, expand("%"), ":e", 1)<CR>
 noremap <Leader>p :call NextFile(projectFilesLister, expand("%"), ":e", -1)<CR>

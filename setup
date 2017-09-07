@@ -2,7 +2,7 @@
 
 REPO=$HOME/work/personal/dotfiles
 
-FILES="bashrc bash gemrc gitconfig gitignore vim vimrc"
+FILES="bashrc bash gemrc gitconfig gitignore vim"
 
 for dotfile in $FILES; do
   test "$1" = "-f" && rm -rf "$HOME/.$dotfile"
