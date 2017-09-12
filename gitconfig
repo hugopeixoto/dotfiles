@@ -3,13 +3,13 @@
   email = hugo.peixoto@gmail.com
 
 [includeIf "gitdir:~/work/lifeonmars.pt/"]
-  path = .gitconfig.d/lifeonmars.pt
+  path = ~/work/personal/dotfiles/gitconfig.d/lifeonmars.pt
 
 [include]
-  path = .gitconfig.d/sendemail
+  path = ~/work/personal/dotfiles/gitconfig.d/sendemail
 
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/work/personal/dotfiles/gitignore
 
 [push]
   default = simple
