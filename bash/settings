@@ -7,3 +7,5 @@ export MAKEFLAGS="-j `nproc`"
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 #shopt -s globstar
 shopt -s checkwinsize
+
+export AWS_CREDENTIAL_PROFILES_FILE="$HOME/secrets/aws/credentials"
