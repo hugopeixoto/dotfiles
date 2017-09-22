@@ -8,8 +8,14 @@ if command -v pass > /dev/null; then
   fi
 
   source "/usr/share/bash-completion/completions/pass"
-  if [ -d "$HOME/work/lifeonmars.pt/internal/password-store-extensions/" ]; then
-    source "$HOME/work/lifeonmars.pt/internal/password-store-extensions/complete-add-id.bash"
-    source "$HOME/work/lifeonmars.pt/internal/password-store-extensions/complete-who.bash"
+
+  EXTENSIONS="$HOME/work/lifeonmars.pt/internal/password-store-extensions"
+  if [ -d "$EXTENSIONS" ]; then
+    source "$EXTENSIONS/complete-add-id.bash"
+    source "$EXTENSIONS/complete-who.bash"
   fi
+
+  unset EXTENSIONS
+
+  export LIFEONMARS_PASSWORD_STORE_DIR="lifeonmarspt/"
 fi

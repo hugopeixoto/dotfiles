@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-alias pubkey='ssh-keygen -yf'
-alias berta='bundle exec ruby test/all.rb'
-alias bert='bundle exec rake test'
-
 activate() {
   py=".env/bin/activate"
   [ -f "$py" ] && . "$py"
@@ -27,6 +23,6 @@ activate() {
   fi
 }
 
+alias pubkey='ssh-keygen -yf'
 function ecm { git add $1 && gcm "${1%*.*} solved"; }
-
 function lip { /sbin/ifconfig | awk '/inet6?/{print $2}' | sort -u; }

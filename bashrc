@@ -1,7 +1,9 @@
 #! /usr/bin/env bash
 
-if [ -d ~/work/personal/dotfiles/bash ]; then
-  for f in ~/work/personal/dotfiles/bash/*; do
-    . "$f"
+export DOTFILES_DIR="$HOME/work/personal/dotfiles"
+
+if [ -d "$DOTFILES_DIR"/bash ]; then
+  for f in "$DOTFILES_DIR"/bash/*; do
+    source "$f"
   done
 fi

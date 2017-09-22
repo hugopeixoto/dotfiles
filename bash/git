@@ -7,4 +7,3 @@ alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gai='git add -i'
-function gr { git rebase -i HEAD~$1; }

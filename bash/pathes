@@ -1,9 +1,4 @@
 #!/usr/bin/env sh
 
-export SUCKLESS_ROOT="$HOME/work/contrib/suckless"
-
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/work/go/bin"
-export PATH="$PATH:$SUCKLESS_ROOT/bin"
-
 export ANDROID_HOME="$HOME/work/contrib/android-sdk"
