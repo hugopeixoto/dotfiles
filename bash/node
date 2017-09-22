@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-export NODEJS_ROOT="$HOME/work/contrib/node"
-
-if [ -d "$NODEJS_ROOT" ]; then
-  export PATH="$PATH:$NODEJS_ROOT/bin"
-fi
-
-export PATH="$PATH:$HOME/work/contrib/yarn/bin"

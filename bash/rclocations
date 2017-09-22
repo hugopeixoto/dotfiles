@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+export PRYRC="$HOME/work/personal/dotfiles/pryrc"
+export GEMRC="$HOME/work/personal/dotfiles/gemrc"
+export PYTHONSTARTUP="$HOME/work/personal/dotfiles/pythonrc"

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-export PYTHON_HISTFILE="$HOME/history/python"
-export PYTHONSTARTUP="$HOME/work/personal/dotfiles/pythonrc"
