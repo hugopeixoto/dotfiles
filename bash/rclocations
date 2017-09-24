@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export IRBRC="$DOTFILES_DIR/irbrc"
 export PRYRC="$DOTFILES_DIR/pryrc"
 export GEMRC="$DOTFILES_DIR/gemrc"
 export PYTHONSTARTUP="$DOTFILES_DIR/pythonrc"
+export ACKRC="$DOTFILES_DIR/ackrc"

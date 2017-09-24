@@ -6,4 +6,6 @@ export MAKEFLAGS="-j `nproc`"
 
 shopt -s checkwinsize
 
-export AWS_CREDENTIAL_PROFILES_FILE="$HOME/secrets/aws/credentials"
+export AWS_SHARED_CREDENTIALS_FILE="$HOME/secrets/aws/credentials"
+export SSH_AUTH_SOCK="$HOME/agents/ssh"
+export BABEL_DISABLE_CACHE=1
