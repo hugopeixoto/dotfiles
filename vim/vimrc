@@ -82,14 +82,39 @@ function! SelectaCommand(choice_command, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
+function! RubyIsTest(filename)
+  return match(a:filename, "_test.rb$") > 0
+endfunction
+
+function! RubyCounterpart(filename)
+  if (RubyIsTest(a:filename))
+    return substitute(substitute(a:filename, "^test/", "app/", ""), "_test.rb$", ".rb", "")
+  else
+    return substitute(substitute(a:filename, "^app/", "test/", ""), ".rb$", "_test.rb", "")
+  endif
+endfunction
+
+function! RubyTest(filename)
+  if (RubyIsTest(a:filename))
+    return a:filename
+  else
+    return RubyCounterpart(a:filename)
+  endif
+endfunction
 
 function! RunTest(lang, filename)
   exec ":w"
 
   if (a:lang == 'ruby')
-    exec "!time ruby -Itest " . a:filename
+    exec "!bin/rails test " . RubyTest(a:filename)
   elseif (a:lang == 'c++')
     exec "!make"
+  endif
+endfunction
+
+function! OpenCounterpart(lang, filename, vim_command)
+  if (a:lang == "ruby")
+    exec a:vim_command . " " . RubyCounterpart(a:filename)
   endif
 endfunction
 
@@ -117,8 +142,12 @@ let projectFilesLister = "find . -maxdepth 5 -type f -not -name '*.un~' \| egrep
 
 noremap <Leader>. :w<CR>:!ruby -Itest %<CR>
 noremap <Leader>r :source $MYVIMRC<CR>
-noremap <Leader>c :%s#\($\n\s*\)\+\%$##<CR>gg=G :w<CR>
-noremap <Leader>c :call FormatCode(&ft)<CR>
+noremap <Leader>f :call FormatCode(&ft)<CR>
+
+noremap <Leader>cs :call OpenCounterpart(&ft, expand("%"), ":sp")<CR>
+noremap <Leader>ct :call OpenCounterpart(&ft, expand("%"), ":tabnew")<CR>
+noremap <Leader>cv :call OpenCounterpart(&ft, expand("%"), ":vs")<CR>
+noremap <Leader>ce :call OpenCounterpart(&ft, expand("%"), ":e")<CR>
 
 noremap <Leader>n :call NextFile(projectFilesLister, expand("%"), ":e", 1)<CR>
 noremap <Leader>p :call NextFile(projectFilesLister, expand("%"), ":e", -1)<CR>
