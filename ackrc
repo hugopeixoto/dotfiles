@@ -1,3 +1,10 @@
 --ignore-dir=.next
 --ignore-dir=log
 --ignore-dir=tmp
+--ignore-dir=coverage
+--ignore-dir=public/packs-test
+--ignore-dir=public/packs
+--ignore-dir=.git
+--ignore-dir=.terraform
+--ignore-dir=src/locales
+--ignore-dir=src/assets/vendor
