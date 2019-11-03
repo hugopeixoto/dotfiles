@@ -7,7 +7,7 @@ if command -v pass > /dev/null; then
     source "$HOME/work/personal/wifi/completion"
   fi
 
-  source "/usr/share/bash-completion/completions/pass"
+  source "$HOME/work/contrib/password-store/src/completion/pass.bash-completion"
 
   EXTENSIONS="$HOME/work/lifeonmars.pt/internal/password-store-extensions"
   if [ -d "$EXTENSIONS" ]; then

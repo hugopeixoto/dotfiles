@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+export TEMPOS_ROOT="$HOME/work/lifeonmars.pt/internal/tempos"

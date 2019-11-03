@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+alias sandbox="export AWS_PROFILE=frctls-sandbox"
+alias production="export AWS_PROFILE=frctls-production"
+
+if [ -d "$HOME/work/frctls" ]; then
+  export FRCTLS_WORK_DIR="$HOME/work/frctls"
+
+  if [ -f "$FRCTLS_WORK_DIR/cli/shell/frctls-completion.sh" ]; then
+    source "$FRCTLS_WORK_DIR/cli/shell/frctls-completion.sh"
+  fi
+fi

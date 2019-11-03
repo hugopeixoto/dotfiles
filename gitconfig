@@ -5,6 +5,9 @@
 [includeIf "gitdir:~/work/lifeonmars.pt/"]
   path = ~/work/personal/dotfiles/gitconfig.d/lifeonmars.pt
 
+[includeIf "gitdir:~/work/frctls/"]
+  path = ~/work/personal/dotfiles/gitconfig.d/frctls.com
+
 [include]
   path = ~/work/personal/dotfiles/gitconfig.d/sendemail
 
@@ -29,4 +32,4 @@
   remote = red
 
 [alias]
-  gl = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  gl = log --graph --decorate --pretty=oneline --abbrev-commit --decorate-refs-exclude='refs/tags/build/*' --all
