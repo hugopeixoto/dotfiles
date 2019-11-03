@@ -1,6 +1,7 @@
 " pathogen
 execute pathogen#infect()
 
+let g:jsx_ext_required = 0
 
 " undo and swap file stuff
 set directory=~/.vim/tmp/swap//
@@ -9,7 +10,7 @@ set undodir=~/.vim/tmp/undo//
 
 
 " dunno
-set showmatch
+set noshowmatch
 set modeline
 
 
@@ -32,14 +33,24 @@ filetype plugin indent on
 
 if has("autocmd")
   autocmd BufRead,BufNewFile *.rs setf rust
-  autocmd BufRead,BufNewFile *.ejs setf html
   autocmd BufRead,BufNewFile */.ssh/config.d/* setf sshconfig
 
-  autocmd BufWinEnter * match ExtraWhitespace /\(.\{800\}\zs.\+\)\|\(^\t\+\)\|\(\s\+$\)/
-  highlight ExtraWhitespace ctermbg=red guibg=red
+  autocmd BufWinEnter * call Whitespace()
 
   autocmd VimResized * exe "normal \<c-w>="
 endif
+
+function! Whitespace()
+  " autocmd BufWinEnter * match ExtraWhitespace /\(.\{1560\}\zs.\+\)/
+
+  if (&ft != 'make')
+    highlight LeadingTabs ctermbg=red guibg=red
+    call matchadd('LeadingTabs', '^\t\+')
+  endif
+
+  highlight TrailingWhitespace ctermbg=blue guibg=blue
+  call matchadd('TrailingWhitespace', '\s\+$')
+endfunction
 
 set autoindent
 set backspace=indent,eol,start
@@ -88,9 +99,9 @@ endfunction
 
 function! RubyCounterpart(filename)
   if (RubyIsTest(a:filename))
-    return substitute(substitute(a:filename, "^test/", "app/", ""), "_test.rb$", ".rb", "")
+    return substitute(substitute(a:filename, "^\\(\\./\\)\\?test/", "app/", ""), "_test.rb$", ".rb", "")
   else
-    return substitute(substitute(a:filename, "^app/", "test/", ""), ".rb$", "_test.rb", "")
+    return substitute(substitute(a:filename, "^\\(\\./\\)\\?app/", "test/", ""), ".rb$", "_test.rb", "")
   endif
 endfunction
 
@@ -107,6 +118,8 @@ function! RunTest(lang, filename)
 
   if (a:lang == 'ruby')
     exec "!bin/rails test " . RubyTest(a:filename)
+  elseif (a:lang == 'rust')
+    exec "!cargo run"
   elseif (a:lang == 'c++')
     exec "!make"
   endif
@@ -138,24 +151,24 @@ endfunction
 
 " funky shortcuts
 let mapleader = ","
-let projectFilesLister = "find . -maxdepth 5 -type f -not -name '*.un~' \| egrep -wv 'node_modules|tmp'"
+let projectFilesLister = "find . -maxdepth 8 -type f -not -name '*.un~' \| egrep -wv 'node_modules|tmp|.git'"
 
 noremap <Leader>. :w<CR>:!ruby -Itest %<CR>
 noremap <Leader>r :source $MYVIMRC<CR>
 noremap <Leader>f :call FormatCode(&ft)<CR>
 
+noremap <Leader>ce :call OpenCounterpart(&ft, expand("%"), ":e")<CR>
 noremap <Leader>cs :call OpenCounterpart(&ft, expand("%"), ":sp")<CR>
 noremap <Leader>ct :call OpenCounterpart(&ft, expand("%"), ":tabnew")<CR>
 noremap <Leader>cv :call OpenCounterpart(&ft, expand("%"), ":vs")<CR>
-noremap <Leader>ce :call OpenCounterpart(&ft, expand("%"), ":e")<CR>
 
 noremap <Leader>n :call NextFile(projectFilesLister, expand("%"), ":e", 1)<CR>
 noremap <Leader>p :call NextFile(projectFilesLister, expand("%"), ":e", -1)<CR>
 
-noremap <Leader>v :call SelectaCommand(projectFilesLister, ":vs")<cr>
-noremap <Leader>t :call SelectaCommand(projectFilesLister, ":tabnew")<cr>
-noremap <Leader>s :call SelectaCommand(projectFilesLister, ":sp")<cr>
 noremap <Leader>e :call SelectaCommand(projectFilesLister, ":e")<cr>
+noremap <Leader>s :call SelectaCommand(projectFilesLister, ":sp")<cr>
+noremap <Leader>t :call SelectaCommand(projectFilesLister, ":tabnew")<cr>
+noremap <Leader>v :call SelectaCommand(projectFilesLister, ":vs")<cr>
 
 noremap <cr> :call RunTest(&ft, expand("%"))<cr>
 noremap <Space> <C-w><C-w>
