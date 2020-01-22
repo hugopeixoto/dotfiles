@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-export ASDF_DATA_DIR="$HOME/work/contrib/asdf"
+if [ -d "$HOME/work/contrib/asdf" ]; then
+  export ASDF_DATA_DIR="$HOME/work/contrib/asdf"
 
-source "$HOME/work/contrib/asdf/asdf.sh"
+  source "$HOME/work/contrib/asdf/asdf.sh"
+fi
