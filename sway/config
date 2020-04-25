@@ -1,0 +1,82 @@
+output "Dell Inc. DELL U2718Q FN84K88L07CL" {
+  pos 1920 0
+  scale 2
+}
+
+output "Dell Inc. DELL U2415 08DXD51O0FKL" {
+  pos 0 0
+}
+
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+set $mod Mod1
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty -e tmux
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+bindsym $mod+p exec $menu
+bindsym $mod+b exec firefox
+
+bindsym $mod+Shift+q exec swaymsg exit
+bindsym $mod+Shift+Return exec $term
+bindsym $mod+Shift+r reload
+
+bindsym $mod+$left focus left
+bindsym $mod+$right focus right
+bindsym $mod+$up focus up
+bindsym $mod+$down focus down
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$down move down
+
+bindsym $mod+Shift+1 move workspace 1
+bindsym $mod+Shift+2 move workspace 2
+bindsym $mod+Shift+3 move workspace 3
+bindsym $mod+Shift+4 move workspace 4
+bindsym $mod+Shift+5 move workspace 5
+bindsym $mod+Shift+6 move workspace 6
+bindsym $mod+Shift+7 move workspace 7
+bindsym $mod+Shift+8 move workspace 8
+bindsym $mod+Shift+9 move workspace 9
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+bindsym $mod+tab workspace next_on_output
+bindsym $mod+Shift+tab workspace prev_on_output
+bindsym $mod+grave workspace back_and_forth
+
+bindsym $mod+f fullscreen
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+
+floating_modifier $mod normal
+
+bar {
+  position top
+  status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+  colors {
+    statusline #ffffff
+    background #323232
+    inactive_workspace #32323200 #32323200 #5c5c5c
+  }
+}
+
+default_border none
+
+input * {
+  xkb_options compose:lwin
+}

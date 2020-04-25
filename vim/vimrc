@@ -172,3 +172,6 @@ noremap <Leader>v :call SelectaCommand(projectFilesLister, ":vs")<cr>
 
 noremap <cr> :call RunTest(&ft, expand("%"))<cr>
 noremap <Space> <C-w><C-w>
+
+let g:ale_cpp_clang_options = '-Wall -pedantic -Werror -std=c++17 -stdlib=libc++'
+let g:ale_cpp_clangcheck_options = '-- -Wall -pedantic -Werror -std=c++17 -stdlib=libc++ -x c++'
