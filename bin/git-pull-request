@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+SUBJECT="$(git log --format="%s" -n 1 HEAD)"
+MESSAGE="$(git log --format="%b" -n 1 HEAD)"
+BASE="$(git config hugopeixoto.defaultbranch || echo "master")"
+REPO="$(git remote get-url origin | sed -ne 's/git@github.com:\(.*\).git/\1/p')"
+
+if [ -z "$REPO" ]; then
+  echo "git-pull-request: not a github repository" >&2
+  exit 1
+fi
+
+PAYLOAD="$(jq -n \
+  --arg title "$SUBJECT" \
+  --arg body "$MESSAGE" \
+  --arg head "$BRANCH" \
+  --arg base "$BASE" \
+  '{"title": $title, "body": $body, "head": $head, "base": $base, "draft": true}')"
+
+OAUTH_TOKEN="$(pass personal/github.com/oauth)"
+
+curl "https://api.github.com/repos/${REPO}/pulls" \
+  -H "Authorization: token ${OAUTH_TOKEN}" \
+  -H 'Accept: application/vnd.github.shadow-cat-preview+json' \
+  -X POST \
+  -d "$PAYLOAD" | jq -r .html_url

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "there's no REST api to undraft PRs. Sorry."
+
+exit 1
+
+PR_URL="$1"
+
+REPO="$(echo "$PR_URL" | sed -e 's|https://github.com/\(.*\)/pull/\(.*\)|\1|')"
+PR="$(echo "$PR_URL" | sed -e 's|https://github.com/\(.*\)/pull/\(.*\)|\2|')"
+
+if [ -z "$REPO" ]; then
+  echo "git-pull-request: not a github repository" >&2
+fi
+
+PAYLOAD="$(jq -n '{"draft": false}')"
+
+OAUTH_TOKEN="$(pass personal/github.com/oauth)"
+
+echo "$PAYLOAD"
+
+curl "https://api.github.com/repos/${REPO}/pulls/${PR}" \
+  -H "Authorization: token ${OAUTH_TOKEN}" \
+  -H 'Accept: application/vnd.github.shadow-cat-preview+json' \
+  -X PATCH \
+  -d "$PAYLOAD"

@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/work/personal/dotfiles/bin:$PATH"
 export ANDROID_HOME="$HOME/work/contrib/android-sdk"
