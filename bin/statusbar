@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 loop do
-  sound = `pacmd list-sinks`.split("\n").grep(/muted/).first.strip.include?("yes")
+  sound = `pacmd list-sinks`.split("\n").grep(/muted/).first.strip.include?("no")
 
   time = Time.now.strftime("%a %d-%m-%Y %H:%M %z")
 
