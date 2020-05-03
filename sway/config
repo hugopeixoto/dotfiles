@@ -67,7 +67,7 @@ floating_modifier $mod normal
 
 bar {
   position top
-  status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+  status_command statusbar
   colors {
     statusline #ffffff
     background #323232

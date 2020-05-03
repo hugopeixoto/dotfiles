@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+loop do
+  sound = `pacmd list-sinks`.split("\n").grep(/muted/).first.strip.include?("yes")
+
+  time = Time.now.strftime("%a %d-%m-%Y %H:%M %z")
+
+  bat = File.read("/sys/class/power_supply/BAT0/capacity").strip;
+
+  puts "#{sound ? "\u{1F50A}" : "\u{1F507}"} #{bat}% | #{time}"
+  STDOUT.flush
+
+  sleep 1
+end
