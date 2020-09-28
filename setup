@@ -2,11 +2,16 @@
 
 REPO=$HOME/work/personal/dotfiles
 
-FILES="bashrc gitconfig vim tmux.conf alacritty.yml"
+FILES="bashrc gitconfig vim tmux.conf alacritty.yml sway:.config/sway"
 
 for dotfile in $FILES; do
   test "$1" = "-f" && rm -rf "$HOME/.$dotfile"
-  ln -Ts "$REPO/$dotfile" "$HOME/.$dotfile"
+
+  from="$(echo "$dotfile" | cut -d: -f1)"
+  to="$(echo "$dotfile" | cut -s -d: -f2)"
+  test -z "$to" && to=".$dotfile"
+
+  ln -Ts "$REPO/$from" "$HOME/$to"
 done
 
 if [ ! -d "$HOME/work/contrib/asdf" ]; then
