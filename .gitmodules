@@ -25,3 +25,9 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "vim/bundle/vim-blade"]
+	path = vim/bundle/vim-blade
+	url = https://github.com/jwalton512/vim-blade
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown
