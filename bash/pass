@@ -9,13 +9,5 @@ if command -v pass > /dev/null; then
 
   source "$HOME/work/contrib/password-store/src/completion/pass.bash-completion"
 
-  EXTENSIONS="$HOME/work/lifeonmars.pt/internal/password-store-extensions"
-  if [ -d "$EXTENSIONS" ]; then
-    source "$EXTENSIONS/complete-add-id.bash"
-    source "$EXTENSIONS/complete-who.bash"
-  fi
-
-  unset EXTENSIONS
-
   export LIFEONMARS_PASSWORD_STORE_DIR="lifeonmarspt/"
 fi
