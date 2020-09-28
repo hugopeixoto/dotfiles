@@ -8,3 +8,4 @@
 --ignore-dir=.terraform
 --ignore-dir=src/locales
 --ignore-dir=src/assets/vendor
+--ignore-dir=.env
