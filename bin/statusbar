@@ -1,13 +1,18 @@
 #!/usr/bin/env ruby
 
 loop do
-  sound = `pacmd list-sinks`.split("\n").grep(/muted/).first.strip.include?("no")
+  sound = `pactl list sinks 2> /dev/null`.split("\n").grep(/Mute/).first&.strip&.include?("no")
 
   time = Time.now.strftime("%a %d-%m-%Y %H:%M %z")
 
-  bat = File.read("/sys/class/power_supply/BAT0/capacity").strip;
+  bat = File.read("/sys/class/power_supply/BAT0/capacity").strip rescue nil
 
-  puts "#{sound ? "\u{1F50A}" : "\u{1F507}"} #{bat}% | #{time}"
+  status = ""
+  status << (sound ? "\u{1F50A}" : "\u{1F507}")
+  status << " #{bat}%" if bat
+  status << " | #{time}"
+
+  puts status
   STDOUT.flush
 
   sleep 1
