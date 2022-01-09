@@ -61,8 +61,6 @@ bindsym $mod+Shift+tab workspace prev_on_output
 bindsym $mod+grave workspace back_and_forth
 
 bindsym $mod+f fullscreen
-bindsym $mod+w layout tabbed
-bindsym $mod+s layout stacking
 
 floating_modifier $mod normal
 
