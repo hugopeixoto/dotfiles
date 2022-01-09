@@ -31,3 +31,5 @@
 [alias]
   gl = log --graph --decorate --pretty=oneline --abbrev-commit --decorate-refs-exclude='refs/tags/build/*' --all
   sha = rev-parse --short HEAD
+[init]
+	defaultBranch = main
