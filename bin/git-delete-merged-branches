@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-git branch --merged origin/master | grep -wv master | xargs -r git branch -d
+MAIN=$(git main-branch)
+
+git branch --merged "origin/$MAIN" | grep -wv "$MAIN" | xargs -r git branch -d
