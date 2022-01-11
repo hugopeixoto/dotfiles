@@ -32,4 +32,4 @@ function aws-profile { export AWS_PROFILE="$1"; }
 function brightness { sudo bash -c "echo $(( $1 * 937 / 100 )) > /sys/class/backlight/intel_backlight/brightness"; }
 function median { ruby -e 'puts ARGF.readlines.map(&:to_f).sort.then{|x|x[(x.size-1)/2..x.size/2]}.then{|x|x.sum.to_f/x.size}'; }
 
-function todo { (cd work/personal/notes; vim todo.txt) }
+function todo { (cd "$HOME/work/personal/notes"; vim todo.txt) }
